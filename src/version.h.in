@@ -1,0 +1,15 @@
+/*
+ * Created by french on 2/3/24.
+*/
+#ifndef THIS_APP_NAME_VERSION_H
+#define THIS_APP_NAME_VERSION_H
+
+#define project_PROJECT_NAME "@PROJECT_NAME@"
+#define project_AUTHOR "@PROJECT_OWNER@"
+#define project_URL "@PROJECT_URL@"
+
+#define project_VERSION_MAJOR @GtkProcRunr_VERSION_MAJOR@
+#define project_VERSION_MINOR @GtkProcRunr_VERSION_MINOR@
+#define project_VERSION_PATCH @GtkProcRunr_VERSION_PATCH@
+
+#endif  /* THIS_APP_NAME_VERSION_H */

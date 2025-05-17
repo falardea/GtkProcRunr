@@ -1,0 +1,62 @@
+@import "process_runner_colors";
+
+// For Development and Testing
+button.remove-before-flight {
+  color: $base-fg;
+  font-size: 3.0em;
+  font-weight: bolder;
+  outline-color: $base-outline-color;
+  border-radius: 30px;
+  border-color: $base-border-color;
+  //background-image: linear-gradient(to top, $rbf-base-red 75%, $rbf-light-red 100%);
+  background-color: $rbf-substrate;
+  background-image: radial-gradient(ellipse at center, $rbf-base-red 70%, $rbf-light-red 75%);
+  //background-image: none;
+  label
+  {
+    text-shadow: 0 0 4px $rbf-text-shadow; // $base-outline-color;
+  }
+  box-shadow: inset 1px 3px rgba(255, 255, 255, 0.5),
+              0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+button.remove-before-flight:active {
+  color: $base-fg;
+  outline-color: $base-outline-color;
+  border-color: $base-border-color;
+  background-color: $rbf-substrate;
+  //background-image: linear-gradient(to top, $rbf-dark-red-pressed 75%, $rbf-light-red-pressed 100%);
+  background-image: radial-gradient(ellipse at center, $rbf-dark-red-pressed 70%, $rbf-light-red-pressed 75%);
+  //background-image: image($bg-red-shadow);
+  label
+  {
+    text-shadow: 0 0 3px $rbf-text-shadow; // $base-outline-color;
+  }
+  box-shadow: inset 1px 2px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+button.remove-before-flight.toggle:checked {
+  color: $base-fg;
+  outline-color: $base-outline-color;
+  border-color: $base-border-color;
+  background-image: image($rbf-base-red);
+}
+
+button.remove-before-flight:backdrop {
+  color: #929595;
+  border-color: #a6a9b6;
+  background-image: image($rbf-dark-red);
+  text-shadow: none;
+}
+
+button.remove-before-flight:backdrop:disabled {
+  color: #d4cfca;
+  border-color: #d5d0cc;
+  background-image: image(#faf9f8);
+}
+
+button.remove-before-flight:disabled {
+  color: #929595;
+  border-color: #cdc7c2;
+  background-image: image(#faf9f8);
+}

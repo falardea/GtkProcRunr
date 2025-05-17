@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.40.0 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <!-- interface-css-provider-path style/popup_samples_style.css -->
+  <template class="ModePrompt" parent="GtkBox">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkBox">
+        <property name="name">overlay-popup-box</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="halign">start</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">10</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">10</property>
+                <property name="margin-bottom">10</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="label" translatable="yes">Run Description</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
+                <property name="width-chars">60</property>
+                <property name="max-width-chars">80</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Enter the run description to use for identification of records.</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">Run Description</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry_run_description">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButtonBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="layout-style">end</property>
+                <child>
+                  <object class="GtkCheckButton" id="ckbtn_enable_service">
+                    <property name="label" translatable="yes">Enable Service</property>
+                    <property name="use-action-appearance">True</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="draw-indicator">True</property>
+                    <signal name="toggled" handler="on_ckbtn_enable_service_toggled" object="ModePrompt" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkBox" id="password_box">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">end</property>
+                    <property name="label" translatable="yes">Password</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entry_service_password">
+                    <property name="name">validated_entry</property>
+                    <property name="visible">True</property>
+                    <property name="sensitive">False</property>
+                    <property name="can-focus">True</property>
+                    <property name="visibility">False</property>
+                    <property name="invisible-char">#</property>
+                    <property name="text" translatable="yes">password</property>
+                    <property name="shadow-type">none</property>
+                    <property name="input-purpose">password</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButtonBox">
+            <property name="name">overlay-popup-box</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">10</property>
+            <property name="spacing">10</property>
+            <property name="layout-style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_cancel">
+                <property name="label" translatable="yes">Cancel</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_btn_cancel_clicked" object="ModePrompt" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_start_run">
+                <property name="label" translatable="yes">Start Run</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_btn_start_run_clicked" object="ModePrompt" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <style>
+      <class name="transparent_background"/>
+    </style>
+  </template>
+</interface>

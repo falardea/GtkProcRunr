@@ -1,0 +1,67 @@
+@import "process_runner_colors";
+
+box#overlay-popup-box
+{
+  color: $gtk_bg_color;
+  box-shadow: 0 0 20px $base-bg;
+
+  border: 3px solid $light-base-bg;
+  background-color: $base-bg;
+  border-radius: 10px;
+  button
+  {
+    //color: $base-fg;
+    border: 3px solid $base-border-color;
+    padding: 10px 10px 10px 10px;
+    //background-size: 100% 100%;
+    font-size: 1.1em;
+    border-radius: 20px;
+    color: $base-fg;
+    font-weight: bolder;
+    outline-color: $base-outline-color;
+    background-image: linear-gradient(to top, $ux-darkdark-blue 2px, $ux-darkest-blue);
+    text-shadow: 0 1px rgba(16, 16, 16, 0.75);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  button:active {
+    color: $base-fg;
+    outline-color: $base-outline-color;
+    border-color: $base-border-color;
+    background-image: linear-gradient(to bottom, $ux-darkdark-blue 2px, $ux-darkest-blue);
+  }
+
+  button.toggle:checked {
+    color: $base-fg;
+    outline-color: $base-outline-color;
+    border-color: $base-border-color;
+    background-image: image(#1a0000);
+  }
+
+  button:backdrop {
+    color: #929595;
+    border-color: #a6a9b6;
+    background-image: image($ux-darkdark-blue);
+    text-shadow: none;
+  }
+
+  button:backdrop:disabled {
+    color: #d4cfca;
+    border-color: #d5d0cc;
+    background-image: image(#faf9f8);
+  }
+
+  button:disabled {
+    color: #929595;
+    border-color: #cdc7c2;
+    background-image: image(#faf9f8);
+  }
+
+}
+
+.error
+{
+  color: red;
+  border-color: red;
+  background-color: pink;
+  background-image: none;
+}

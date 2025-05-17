@@ -1,0 +1,10 @@
+@import "process_runner_colors";
+@import "process_runner_button";
+@import "_validated_entry.scss";
+
+window {
+  //background-image: none;
+  background-color: $base-bg;
+  color: $light-base-bg;
+  font-size: 18px;
+}
