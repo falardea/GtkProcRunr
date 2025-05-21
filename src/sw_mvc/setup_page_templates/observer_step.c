@@ -3,7 +3,6 @@
  * @brief
  */
 #include "observer_step.h"
-#include "template_common.h"
 #include "utils/logging.h"
 
 #define OBSERVER_STEP_PROCESS_COMPLETE_STR "process-complete"

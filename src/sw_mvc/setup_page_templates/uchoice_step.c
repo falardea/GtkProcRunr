@@ -4,13 +4,11 @@
  */
 
 #include "uchoice_step.h"
-#include "template_common.h"
 #include "utils/logging.h"
 
 struct _UchoiceStep
 {
    GtkBox      parent;
-   GtkLabel    *lbl_step_bullet;
    GtkLabel    *lbl_step_description;
 
    GtkButton   *btn_start_next;
@@ -54,7 +52,6 @@ static void uchoice_step_class_init(UchoiceStepClass *klass)
    gobject_class->finalize = uchoice_step_finalize;
 
    gtk_widget_class_set_template_from_resource(GTK_WIDGET_CLASS(klass), "/resource_path/uchoice_step");
-   gtk_widget_class_bind_template_child(widget_class, UchoiceStep, lbl_step_bullet);
    gtk_widget_class_bind_template_child(widget_class, UchoiceStep, lbl_step_description);
    gtk_widget_class_bind_template_child(widget_class, UchoiceStep, btn_start_next);
    gtk_widget_class_bind_template_child(widget_class, UchoiceStep, btn_cancel_skip);
@@ -79,7 +76,6 @@ UchoiceStep *uchoice_step_new(const gchar *uchoice_description,
    self = g_object_new(UCHOICE_TYPE_STEP, NULL);
 
    gtk_label_set_text(self->lbl_step_description, uchoice_description);
-   gtk_label_set_markup(self->lbl_step_bullet, BLUE_BULLET_FORMAT_STR);
    gtk_button_set_label(self->btn_start_next, right_btn_label != NULL ? right_btn_label : "NEXT");
    gtk_button_set_label(self->btn_cancel_skip, left_btn_label != NULL ? left_btn_label : "CANCEL");
    self->model = model;

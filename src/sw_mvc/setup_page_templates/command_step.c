@@ -4,14 +4,12 @@
  */
 
 #include "command_step.h"
-#include "template_common.h"
 #include "utils/logging.h"
 
 
 struct _CommandStep
 {
    GtkBox      parent;
-   GtkLabel    *lbl_step_bullet;
    GtkLabel    *lbl_step_description;
 
    GtkButton   *btn_start_next;
@@ -46,7 +44,6 @@ static void command_step_class_init(CommandStepClass *klass)
    gobject_class->finalize = command_step_finalize;
 
    gtk_widget_class_set_template_from_resource(GTK_WIDGET_CLASS(klass), "/resource_path/command_step");
-   gtk_widget_class_bind_template_child(widget_class, CommandStep, lbl_step_bullet);
    gtk_widget_class_bind_template_child(widget_class, CommandStep, lbl_step_description);
    gtk_widget_class_bind_template_child(widget_class, CommandStep, btn_start_next);
 
@@ -67,7 +64,6 @@ CommandStep *command_step_new(const gchar *step_description,
    self = g_object_new(COMMAND_TYPE_STEP, NULL);
 
    gtk_label_set_text(self->lbl_step_description, step_description);
-   gtk_label_set_markup(self->lbl_step_bullet, BLUE_BULLET_FORMAT_STR);
    gtk_button_set_label(self->btn_start_next, next_label != NULL ? next_label : "NEXT");
 
    self->model = model;

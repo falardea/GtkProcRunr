@@ -47,6 +47,8 @@ typedef enum
    // ...
    RUN_SETUP_INTERMEDIATE_STEPS,
    // ...
+   RUN_SETUP_PROMPT_FOR_FLUID_VOLUME,
+   // ...
    RUN_SETUP_COMPLETE,
    RUN_SETUP_FAILED,
    RUN_SETUP_N_STEPS
@@ -73,6 +75,9 @@ void run_model_set_leak_check_complete(RunModel *self, gboolean complete);
 gboolean run_model_get_leak_check_success(RunModel *self);
 PneumaticLeakTest *run_model_get_pneumatic_leak_test(RunModel *self);
 void run_model_set_pneumatic_leak_test(RunModel *self, PneumaticLeakTest *source);
+
+guint run_model_get_fluid_volume(RunModel *self);
+gboolean run_model_validate_and_set_fluid_volume(RunModel *self, const gchar *ui_input_str);
 
 // Memento?
 void run_model_set_restore_point(RunModel *self);

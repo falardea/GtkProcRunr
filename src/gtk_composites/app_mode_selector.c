@@ -55,7 +55,7 @@ gboolean service_validation_callback(AppModeSelector *self, gchar *password_to_v
    RunModel *model = RUN_MODEL(user_data);
    AppModeSelectorPrivate *priv = app_mode_selector_get_instance_private(self);
 
-   if (strlen(password_to_validate) > 0 && strcmp(password_to_validate, "Abracadabra") == 0) {
+   if (strlen(password_to_validate) > 0 && strcmp(password_to_validate, "asdf") == 0) {
       logging_llprintf(LOGLEVEL_DEBUG, "%s: %s", __func__, password_to_validate);
 
       run_model_set_run_description(model, (description != NULL) ? description : "SERVICE");

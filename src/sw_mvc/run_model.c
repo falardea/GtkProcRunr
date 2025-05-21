@@ -14,14 +14,17 @@ typedef struct
 struct _RunModel
 {
    GObject           super;
+
    RUN_MODEL_MODE    run_mode;
+   RUN_SETUP_STEPS   last_completed_phase;
 
-   RUN_SETUP_STEPS  last_completed_phase;
-   PneumaticLeakTest    *pneumatic_leak_test;
+   gboolean leak_check_complete;
+   gboolean leak_check_success;
+   PneumaticLeakTest *pneumatic_leak_test;
 
-   gchar             *run_description;
-   gboolean          leak_check_complete;
-   gboolean          leak_check_success;
+   gchar    *run_description;
+
+   guint    fluid_volume;
 };
 
 G_DEFINE_TYPE_WITH_PRIVATE( RunModel, run_model, G_TYPE_OBJECT )
@@ -211,6 +214,30 @@ void run_model_set_pneumatic_leak_test(RunModel *self, PneumaticLeakTest *source
    }
 }
 
+guint run_model_get_fluid_volume(RunModel *self)
+{
+   return self->fluid_volume;
+}
+gboolean run_model_validate_and_set_fluid_volume(RunModel *self, const gchar *ui_input_str)
+{
+   if (ui_input_str == NULL || strcmp(ui_input_str, "\0") == 0)
+   {
+      return FALSE;
+   }
+   char *endptr;
+   guint parsed_int = strtoul(ui_input_str, &endptr, 10);
+   if (parsed_int == 0 && ui_input_str == endptr)
+   {
+      // failed to parse an int in string
+      return FALSE;
+   }
+   else
+   {
+      self->fluid_volume = parsed_int;
+      return TRUE;
+   }
+}
+
 RUN_SETUP_STEPS run_model_get_step(RunModel *self )
 {
    g_return_val_if_fail( RUN_IS_MODEL( self ), RUN_SETUP_FAILED);
@@ -231,11 +258,16 @@ void run_model_set_step(RunModel *self, RUN_SETUP_STEPS step )
       switch(self->last_completed_phase)
       {
          case RUN_SETUP_UNINITIALIZED:
+            break;
          case RUN_SETUP_MODE_SELECTED:
             logging_llprintf(LOGLEVEL_DEBUG, "%s: RUN_SETUP_MODE_SELECTED->start mem check", __func__);
             break;
          case RUN_SETUP_MEMCHECK_COMPLETE:
+            break;
          case RUN_SETUP_INTERMEDIATE_STEPS:
+            break;
+         case RUN_SETUP_PROMPT_FOR_FLUID_VOLUME:
+            break;
          case RUN_SETUP_COMPLETE:
             logging_llprintf(LOGLEVEL_DEBUG, "%s: RUN_SETUP_COMPLETE->switch to perfusion tab", __func__);
             break;

@@ -3,7 +3,6 @@
  * @brief
  */
 #include "branch_step.h"
-#include "template_common.h"
 #include "utils/logging.h"
 
 #define BRANCH_STEP_PROCESS_COMPLETE_STR "process-complete"

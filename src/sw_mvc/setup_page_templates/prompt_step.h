@@ -17,7 +17,6 @@ G_DECLARE_FINAL_TYPE(PromptStep, prompt_step, PROMPT, STEP, GtkBox)
 typedef gboolean (*PromptStepValidationFn)(PromptStep *self, GtkEntry *entry_widget);
 
 PromptStep *prompt_step_new(const gchar *step_description,
-                            const gchar *left_btn_label,
                             const gchar *right_btn_label,
                             const gchar *prompt_description,
                             const gchar *prompt_units,
