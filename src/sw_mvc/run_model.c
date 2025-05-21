@@ -66,7 +66,7 @@ static void run_model_set_property( GObject *object, guint prop_id, const GValue
          run_model_set_run_mode( model, g_value_get_uint( value ) );
          break;
       case RUN_MODEL_PROP_SETUP_STEP_CHANGE:
-         run_model_set_last_completed_step( model, g_value_get_uint( value ) );
+         run_model_set_step( model, g_value_get_uint( value ) );
          break;
       case RUN_MODEL_PROP_LEAK_CHECK_COMPLETE:
          run_model_set_leak_check_complete(model, g_value_get_boolean( value ) );
@@ -88,7 +88,7 @@ static void run_model_get_property( GObject *object, guint prop_id, GValue *valu
          g_value_set_uint( value, run_model_get_run_mode( model ) );
          break;
       case RUN_MODEL_PROP_SETUP_STEP_CHANGE:
-         g_value_set_uint( value, run_model_get_last_completed_step( model ) );
+         g_value_set_uint( value, run_model_get_step( model ) );
          break;
       case RUN_MODEL_PROP_LEAK_CHECK_COMPLETE:
          g_value_set_boolean( value, run_model_get_leak_check_complete( model ) );
@@ -211,13 +211,13 @@ void run_model_set_pneumatic_leak_test(RunModel *self, PneumaticLeakTest *source
    }
 }
 
-RUN_SETUP_STEPS run_model_get_last_completed_step(RunModel *self )
+RUN_SETUP_STEPS run_model_get_step(RunModel *self )
 {
    g_return_val_if_fail( RUN_IS_MODEL( self ), RUN_SETUP_FAILED);
    logging_llprintf(LOGLEVEL_DEBUG, "%s", __func__);
    return self->last_completed_phase;
 }
-void run_model_set_last_completed_step(RunModel *self, RUN_SETUP_STEPS step )
+void run_model_set_step(RunModel *self, RUN_SETUP_STEPS step )
 {
    g_return_if_fail(self != NULL);
    logging_llprintf(LOGLEVEL_DEBUG, "%s", __func__);

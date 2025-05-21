@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="HwSimPanel" parent="GtkWindow">
-    <property name="can_focus">False</property>
-    <property name="default_width">400</property>
-    <property name="default_height">300</property>
-    <property name="destroy_with_parent">True</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
+    <property name="can-focus">False</property>
+    <property name="default-width">400</property>
+    <property name="default-height">300</property>
+    <property name="destroy-with-parent">True</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="margin_start">10</property>
-        <property name="margin_end">10</property>
-        <property name="margin_top">10</property>
-        <property name="margin_bottom">10</property>
+        <property name="can-focus">False</property>
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
         <property name="orientation">vertical</property>
         <property name="spacing">10</property>
         <child>
           <object class="GtkBox" id="panel_header">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="spacing">10</property>
             <child>
-              <object class="GtkLabel">
+              <object class="GtkLabel" id="lbl_run_id">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
-                <property name="label" translatable="yes">A "Hardware" simulator panel, where we can "listen" for signals from the setup sequence as we step through and trigger "responses".</property>
+                <property name="label" translatable="yes">&lt;b&gt;Run ID&lt;/b&gt;</property>
+                <property name="use-markup">True</property>
                 <property name="justify">center</property>
                 <property name="wrap">True</property>
               </object>
@@ -51,15 +49,15 @@
         <child>
           <object class="GtkBox" id="panel_content">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
             <property name="spacing">10</property>
             <child>
-              <object class="GtkBox" id="fluid_loaded_box">
+              <object class="GtkBox" id="_test_mode">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
@@ -67,8 +65,8 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Fluid Loaded</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">Test Mode</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -77,9 +75,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkBox" id="fuild_loaded_icon_box">
+                  <object class="GtkBox" id="test_mode_icon_box">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <placeholder/>
@@ -101,22 +99,7 @@
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Pneumatic Leak Test</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
+                <property name="can-focus">False</property>
                 <child>
                   <placeholder/>
                 </child>
@@ -128,17 +111,17 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="memcheck_response_box">
+              <object class="GtkBox" id="_memcheck_response_box">
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="label" translatable="yes">Memcheck</property>
                   </object>
                   <packing>
@@ -151,9 +134,9 @@
                   <object class="GtkCheckButton" id="ckbtn_memcheck_failure">
                     <property name="label" translatable="yes">low-mem</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="draw-indicator">True</property>
                     <signal name="toggled" handler="on_ckbtn_memcheck_failure_toggled" object="HwSimPanel" swapped="no"/>
                   </object>
                   <packing>
@@ -166,8 +149,8 @@
                   <object class="GtkButton" id="btn_memcheck_response">
                     <property name="label" translatable="yes">Send</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <signal name="clicked" handler="on_btn_memcheck_response_clicked" object="HwSimPanel" swapped="no"/>
                     <style>
                       <class name="start-next"/>
@@ -189,14 +172,14 @@
             <child>
               <object class="GtkBox" id="pumping_response_box">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="label" translatable="yes">Pumping</property>
                   </object>
                   <packing>
@@ -209,9 +192,9 @@
                   <object class="GtkCheckButton" id="ckbtn_pump_enable_failure">
                     <property name="label" translatable="yes">failure</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="draw-indicator">True</property>
                     <signal name="toggled" handler="on_ckbtn_pump_enable_failure_toggled" object="HwSimPanel" swapped="no"/>
                   </object>
                   <packing>
@@ -224,8 +207,8 @@
                   <object class="GtkButton" id="btn_pump_enable_response">
                     <property name="label" translatable="yes">Send</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <signal name="clicked" handler="on_btn_pump_enable_response_clicked" object="HwSimPanel" swapped="no"/>
                     <style>
                       <class name="start-next"/>
@@ -247,14 +230,14 @@
             <child>
               <object class="GtkBox" id="heating_response_box">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="hexpand">True</property>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="label" translatable="yes">Heating</property>
                   </object>
                   <packing>
@@ -267,9 +250,9 @@
                   <object class="GtkCheckButton" id="ckbtn_heat_enable_failure">
                     <property name="label" translatable="yes">failure</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="draw_indicator">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="draw-indicator">True</property>
                     <signal name="toggled" handler="on_ckbtn_heat_enable_failure_toggled" object="HwSimPanel" swapped="no"/>
                   </object>
                   <packing>
@@ -282,8 +265,8 @@
                   <object class="GtkButton" id="btn_heat_enable_response">
                     <property name="label" translatable="yes">Send</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <signal name="clicked" handler="on_btn_heat_enable_response_clicked" object="HwSimPanel" swapped="no"/>
                     <style>
                       <class name="start-next"/>
@@ -315,19 +298,19 @@
         <child>
           <object class="GtkBox" id="panel_gutter">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButtonBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="layout_style">end</property>
+                <property name="can-focus">False</property>
+                <property name="layout-style">end</property>
                 <child>
                   <object class="GtkButton" id="hw_sim_panel_close">
                     <property name="label" translatable="yes">Close</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <signal name="clicked" handler="on_hw_sim_panel_close_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -347,7 +330,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="pack_type">end</property>
+            <property name="pack-type">end</property>
             <property name="position">3</property>
           </packing>
         </child>

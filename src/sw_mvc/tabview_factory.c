@@ -73,23 +73,51 @@ static void tabview_factory_build_step_map(TabviewFactory *self)
 
    TabviewFactoryPrivate *priv = tabview_factory_get_instance_private(self);
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_UNINITIALIZED),
-                       command_step_new("This is not suppose to be shown", "Goto Mode Select", self->run_model, RUN_SETUP_MODE_SELECTED));
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_UNINITIALIZED),
+                       command_step_new("This is not suppose to be shown",
+                                        "Goto Mode Select",
+                                        self->run_model,
+                                        RUN_SETUP_MODE_SELECTED));
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_MODE_SELECTED),
-                       command_step_new("Welcome to POD (run mode selected)", "Start", self->run_model, RUN_SETUP_MEMCHECK_COMPLETE));
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_MODE_SELECTED),
+                       command_step_new("Welcome to POD (run mode selected)",
+                                        "Start",
+                                        self->run_model,
+                                        RUN_SETUP_MEMCHECK_COMPLETE));
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_MEMCHECK_COMPLETE),
-                       uchoice_step_new("Memcheck complete", "Retry", "Next", self->run_model, RUN_SETUP_MODE_SELECTED, RUN_SETUP_INTERMEDIATE_STEPS));
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_MEMCHECK_COMPLETE),
+                       uchoice_step_new("Memcheck complete",
+                                        "Retry",
+                                        "Next",
+                                        self->run_model,
+                                        RUN_SETUP_MODE_SELECTED,
+                                        RUN_SETUP_INTERMEDIATE_STEPS));
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_INTERMEDIATE_STEPS),
-                       branch_step_new("A wait step", self->run_model, RUN_MODEL_SETUP_LEAK_COMPLETE_PROP_STR, RUN_SETUP_COMPLETE));
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_INTERMEDIATE_STEPS),
+                       branch_step_new("A wait step",
+                                       self->run_model,
+                                       RUN_MODEL_SETUP_LEAK_COMPLETE_PROP_STR,
+                                       RUN_SETUP_COMPLETE));
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_COMPLETE),
-                       command_step_new("Setup Complete", "Done", self->run_model, RUN_SETUP_FAILED));
+   // g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_))
 
-   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_FAILED),
-                       command_step_new("A Failure has occurred", "Exit", self->run_model, RUN_SETUP_FAILED));
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_COMPLETE),
+                       command_step_new("Setup Complete",
+                                        "Done",
+                                        self->run_model,
+                                        RUN_SETUP_FAILED));
+
+   g_hash_table_insert(priv->step_map,
+                       GINT_TO_POINTER(RUN_SETUP_FAILED),
+                       command_step_new("A Failure has occurred",
+                                        "Exit",
+                                        self->run_model,
+                                        RUN_SETUP_FAILED));
 }
 
 static void per_map_fn(gpointer key, gpointer value, gpointer user_data)

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="AppModeSelector" parent="GtkBox">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkStack" id="page_stack">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="transition_duration">500</property>
+        <property name="can-focus">False</property>
+        <property name="transition-duration">500</property>
         <child>
           <object class="GtkButtonBox" id="mode_select_page">
             <property name="name">ams-start-page</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">25</property>
-            <property name="layout_style">center</property>
+            <property name="layout-style">center</property>
             <child>
               <object class="GtkButton" id="btn_start_new_run">
-                <property name="label" translatable="yes">Standard</property>
+                <property name="label" translatable="yes">Start</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_btn_start_new_run_clicked" object="AppModeSelector" swapped="no"/>
               </object>
               <packing>
@@ -39,8 +39,8 @@
               <object class="GtkButton" id="btn_config_page">
                 <property name="label" translatable="yes">Config</property>
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <signal name="clicked" handler="on_btn_config_page_clicked" object="AppModeSelector" swapped="no"/>
               </object>
               <packing>
@@ -58,7 +58,7 @@
         <child>
           <object class="GtkBox" id="run_page">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
@@ -75,12 +75,12 @@
         <child>
           <object class="GtkBox" id="config_page">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="label" translatable="yes">CONFIGURATION PAGE</property>
               </object>
               <packing>
@@ -92,14 +92,14 @@
             <child>
               <object class="GtkButtonBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="layout_style">spread</property>
+                <property name="can-focus">False</property>
+                <property name="layout-style">spread</property>
                 <child>
                   <object class="GtkButton" id="btn_config_back">
                     <property name="label" translatable="yes">Back</property>
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <signal name="clicked" handler="on_btn_config_back_clicked" object="AppModeSelector" swapped="no"/>
                   </object>
                   <packing>

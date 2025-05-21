@@ -40,7 +40,7 @@ void on_prompt_step_btn_start_next_clicked(__attribute__((unused)) GtkButton *bu
    gtk_label_set_markup(self->lbl_step_bullet, BLUE_BULLET_FORMAT_STR);
    if(self->validation_fn(self, self->entry_input))
    {
-      run_model_set_last_completed_step(self->model, self->next_on_valid);
+      run_model_set_step(self->model, self->next_on_valid);
    }
 }
 

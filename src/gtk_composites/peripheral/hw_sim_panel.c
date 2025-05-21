@@ -8,17 +8,14 @@
 
 typedef struct
 {
-   BasicLedIndicator *fluid_loaded;
+   BasicLedIndicator *test_mode_enabled;
 }HwSimPanelPrivate;
 
 struct _HwSimPanel
 {
    GtkWindow      super;
 
-   GtkBox         *memcheck_response_box;
-   GtkBox         *pumping_response_box;
-   GtkBox         *heating_response_box;
-   GtkBox         *fuild_loaded_icon_box;
+   GtkBox         *test_mode_icon_box;
 
    GtkButton      *hw_sim_panel_close;
    GtkButton      *btn_memcheck_response;
@@ -28,6 +25,8 @@ struct _HwSimPanel
    GtkCheckButton *ckbtn_memcheck_failure;
    GtkCheckButton *ckbtn_pump_enable_failure;
    GtkCheckButton *ckbtn_heat_enable_failure;
+
+   GtkLabel       *lbl_run_id;
 
    RunModel *model;
 };
@@ -63,16 +62,17 @@ static void hw_sim_panel_class_init(HwSimPanelClass *klass)
 
    gtk_widget_class_set_template_from_resource(GTK_WIDGET_CLASS(widget_class), "/resource_path/hw_sim_panel");
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, hw_sim_panel_close);
-   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, memcheck_response_box);
-   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, pumping_response_box);
-   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, heating_response_box);
-   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, fuild_loaded_icon_box);
+   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, test_mode_icon_box);
+
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, btn_memcheck_response);
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, btn_pump_enable_response);
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, btn_heat_enable_response);
+
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, ckbtn_memcheck_failure);
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, ckbtn_heat_enable_failure);
    gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, ckbtn_pump_enable_failure);
+
+   gtk_widget_class_bind_template_child_internal(widget_class, HwSimPanel, lbl_run_id);
 
    // Might be a bit overkill with all these close/destroy/delete... but we probably still aren't freeing the memory correctly for this
    gtk_widget_class_bind_template_callback_full(widget_class, "on_hw_sim_panel_close_clicked", (GCallback)on_hw_sim_panel_close_clicked);
@@ -99,8 +99,8 @@ HwSimPanel *hw_sim_panel_new(RunModel *model)
    self->model = model;
 
    HwSimPanelPrivate *priv = hw_sim_panel_get_instance_private(self);
-   priv->fluid_loaded = BASIC_LED_INDICATOR(basic_led_indicator_new());
-   gtk_box_pack_end(GTK_BOX(self->fuild_loaded_icon_box), GTK_WIDGET(priv->fluid_loaded), TRUE, TRUE, 0);
+   priv->test_mode_enabled = BASIC_LED_INDICATOR(basic_led_indicator_new());
+   gtk_box_pack_end(GTK_BOX(self->test_mode_icon_box), GTK_WIDGET(priv->test_mode_enabled), TRUE, TRUE, 0);
 
    g_signal_connect (G_OBJECT(model), RUN_MODEL_MODE_CHANGE_SIGNAL_STR, G_CALLBACK(hw_sim_panel_rx_mode_change), self);
    return self;
@@ -142,7 +142,7 @@ void hw_sim_panel_rx_mode_change(__attribute__((unused))RunModel *source, RUN_MO
    HwSimPanel *self = HW_SIM_PANEL(user_data);
    HwSimPanelPrivate *priv = hw_sim_panel_get_instance_private(self);
 
-   basic_led_indicator_set_enabled(priv->fluid_loaded, mode);
+   basic_led_indicator_set_enabled(priv->test_mode_enabled, mode == RUN_MODE_TEST);
 }
 
 static void on_hw_sim_panel_close_clicked(GtkWidget *button,__attribute__((unused)) gpointer *user_data)

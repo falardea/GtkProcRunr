@@ -31,6 +31,8 @@ typedef enum
    N_RUM_MODEL_MODES
 } RUN_MODEL_MODE;
 
+
+
 typedef enum
 {
    RUN_SETUP_UNINITIALIZED = 0,
@@ -59,8 +61,8 @@ RunModel *run_model_new();
 RUN_MODEL_MODE run_model_get_run_mode(RunModel *self );
 void run_model_set_run_mode(RunModel *self, RUN_MODEL_MODE mode );
 
-RUN_SETUP_STEPS run_model_get_last_completed_step(RunModel *self );
-void run_model_set_last_completed_step(RunModel *self, RUN_SETUP_STEPS step );
+RUN_SETUP_STEPS run_model_get_step(RunModel *self );
+void run_model_set_step(RunModel *self, RUN_SETUP_STEPS step );
 
 gchar *run_model_get_run_description(RunModel *self);
 void run_model_set_run_description(RunModel *self, const gchar *run_description);

@@ -35,7 +35,7 @@ static void on_command_step_btn_start_next_clicked(__attribute__((unused)) GtkBu
 {
    CommandStep *self = COMMAND_STEP(user_data);
    logging_llprintf(LOGLEVEL_DEBUG, "%s", __func__);
-   run_model_set_last_completed_step(self->model, self->go_to_state);
+   run_model_set_step(self->model, self->go_to_state);
 }
 
 static void command_step_class_init(CommandStepClass *klass)

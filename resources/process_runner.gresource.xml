@@ -2,42 +2,28 @@
 <gresources>
     <gresource prefix="/resource_path">
         <!-- GtkBuilder resource files using *.glade to differentiate from composite templates -->
-        <file alias="main_app_wnd" compressed="true"
-              preprocess="xml-stripblanks">resources/process_runner.glade</file>
-        <file alias="hw_sim_panel" compressed="true"
-              preprocess="xml-stripblanks">resources/hw_sim_panel.glade</file>
-        <file alias="basic_led_indicator" compressed="true"
-              preprocess="xml-stripblanks">resources/basic_led_indicator.glade</file>
+        <file alias="main_app_wnd" compressed="true" preprocess="xml-stripblanks">resources/process_runner.glade</file>
+        <file alias="hw_sim_panel" compressed="true" preprocess="xml-stripblanks">resources/hw_sim_panel.glade</file>
+        <file alias="basic_led_indicator" compressed="true" preprocess="xml-stripblanks">resources/basic_led_indicator.glade</file>
 
         <!-- Composite Templates using *.ui to differentiate from "builder" templates -->
-        <file alias="log_terminal" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/log_terminal.ui</file>
+        <file alias="log_terminal" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/log_terminal.ui</file>
 
-        <file alias="app_mode_selector" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/app_mode_selector.ui</file>
-        <file alias="mode_prompt" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/mode_prompt.ui</file>
+        <file alias="app_mode_selector" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/app_mode_selector.ui</file>
+        <file alias="mode_prompt" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/mode_prompt.ui</file>
 
-        <file alias="run_viewer" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/run_viewer.ui</file>
-        <file alias="setup_viewer" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/setup_viewer.ui</file>
+        <file alias="run_viewer" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/run_viewer.ui</file>
+        <file alias="setup_viewer" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/setup_viewer.ui</file>
 
-        <file alias="standard_context" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/standard_context.ui</file>
-        <file alias="service_context" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/service_context.ui</file>
-        <file alias="setup_context" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/setup_context.ui</file>
+        <file alias="standard_context" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/standard_context.ui</file>
+        <file alias="service_context" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/service_context.ui</file>
+        <file alias="setup_context" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/setup_context.ui</file>
 
-        <file alias="command_step" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/command_step.ui</file>
-        <file alias="uchoice_step" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/uchoice_step.ui</file>
-        <file alias="branch_step" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/branch_step.ui</file>
-        <file alias="observer_step" compressed="true"
-              preprocess="xml-stripblanks">resources/composite_templates/observer_step.ui</file>
+        <file alias="command_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/command_step.ui</file>
+        <file alias="uchoice_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/uchoice_step.ui</file>
+        <file alias="branch_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/branch_step.ui</file>
+        <file alias="observer_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/observer_step.ui</file>
+        <file alias="prompt_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/prompt_step.ui</file>
 
         <!-- CSS -->
         <file alias="app_style">resources/style/process_runner_style.css</file>

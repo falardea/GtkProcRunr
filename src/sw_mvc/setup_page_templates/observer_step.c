@@ -191,11 +191,11 @@ static void observer_step_set_process_complete(ObserverStep *self, gboolean comp
       {
          // On success ??
          // g_object_unref(self->external_binding);
-         run_model_set_last_completed_step(self->model, self->on_success);
+         run_model_set_step(self->model, self->on_success);
       }
       else
       {
-         run_model_set_last_completed_step(self->model, self->on_failure);
+         run_model_set_step(self->model, self->on_failure);
       }
 
    }
