@@ -8,3 +8,26 @@ window {
   color: $light-base-bg;
   font-size: 18px;
 }
+
+
+label.error
+{
+  color: red;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-color: #800000;
+  background-image: none;
+}
+
+entry.error
+{
+  color: white;
+  border-color: red;
+  background-color: #800000;
+  background-image: none;
+
+  selection
+  {
+    background-color: red;
+  }
+}

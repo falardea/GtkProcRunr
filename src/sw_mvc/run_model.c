@@ -224,11 +224,15 @@ gboolean run_model_validate_and_set_fluid_volume(RunModel *self, const gchar *ui
    {
       return FALSE;
    }
-   char *endptr;
-   guint parsed_int = strtoul(ui_input_str, &endptr, 10);
-   if (parsed_int == 0 && ui_input_str == endptr)
+   char *end_ptr;
+   guint parsed_int = strtoul(ui_input_str, &end_ptr, 10);
+   if (parsed_int == 0 && ui_input_str == end_ptr)
    {
       // failed to parse an int in string
+      return FALSE;
+   }
+   else if (parsed_int < 10 || parsed_int > 100)
+   {
       return FALSE;
    }
    else
@@ -276,8 +280,6 @@ void run_model_set_step(RunModel *self, RUN_SETUP_STEPS step )
             logging_llprintf(LOGLEVEL_DEBUG, "%s: RUN_SETUP_FAILED->we failed or got a state we don't understand", __func__);
             break;
       }
-
-      // ----------------------
       g_object_notify_by_pspec(G_OBJECT(self), model_properties[RUN_MODEL_PROP_SETUP_STEP_CHANGE]);
       g_signal_emit(G_OBJECT(self), run_model_sigs[RUN_MODEL_SIGNAL_SETUP_STEP_CHANGE], 0, self->last_completed_phase);
    }

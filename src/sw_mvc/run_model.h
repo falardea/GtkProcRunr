@@ -57,6 +57,9 @@ typedef enum
 typedef void (*RunModelSetterCallback_T)(RunModel *self, gpointer user_data);
 typedef gboolean (* RunModelBooleanGetterFn_T) (RunModel *self);
 
+typedef gboolean (*PromptStrValidateAndSetFn)(RunModel *self, const gchar *input_str);
+
+
 /* Methods for our newly declared GObject derived GType*/
 RunModel *run_model_new();
 

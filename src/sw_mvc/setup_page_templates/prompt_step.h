@@ -14,15 +14,14 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE(PromptStep, prompt_step, PROMPT, STEP, GtkBox)
 
-typedef gboolean (*PromptStepValidationFn)(PromptStep *self, GtkEntry *entry_widget);
-
 PromptStep *prompt_step_new(const gchar *step_description,
                             const gchar *right_btn_label,
-                            const gchar *prompt_description,
-                            const gchar *prompt_units,
+                            const gchar *input_description,
+                            const gchar *input_units,
+                            const gchar *on_invalid_message,
                             RunModel *model,
                             RUN_SETUP_STEPS state_on_valid_input,
-                            PromptStepValidationFn validation_callback);
+                            PromptStrValidateAndSetFn validation_callback);
 
 G_END_DECLS
 #endif  // PROMPT_STEP_H__

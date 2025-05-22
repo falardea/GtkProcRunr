@@ -118,7 +118,9 @@ set(MY_SOURCES
       src/sw_mvc/setup_page_templates/branch_step.c
       src/sw_mvc/setup_page_templates/observer_step.h
       src/sw_mvc/setup_page_templates/observer_step.c
-      src/sw_mvc/pneumatic_leak_test.h
+    src/sw_mvc/setup_page_templates/prompt_step.c
+    src/sw_mvc/setup_page_templates/prompt_step.h
+    src/sw_mvc/pneumatic_leak_test.h
       src/sw_mvc/pneumatic_leak_test.c
 )
 

@@ -7,6 +7,8 @@
 #include "setup_page_templates/command_step.h"
 #include "setup_page_templates/uchoice_step.h"
 #include "setup_page_templates/branch_step.h"
+#include "setup_page_templates/observer_step.h"
+#include "setup_page_templates/prompt_step.h"
 #include "setup_view.h"
 
 typedef struct
@@ -101,9 +103,13 @@ static void tabview_factory_build_step_map(TabviewFactory *self)
                        branch_step_new("A wait step",
                                        self->run_model,
                                        RUN_MODEL_SETUP_LEAK_COMPLETE_PROP_STR,
-                                       RUN_SETUP_COMPLETE));
+                                       RUN_SETUP_PROMPT_FOR_FLUID_VOLUME));
 
-   // g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_))
+   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_PROMPT_FOR_FLUID_VOLUME),
+                       prompt_step_new("Fluid Volume Input Required", "Next",
+                                       "Volume", "gal", "Enter a value between 10 and 100",
+                                       self->run_model, RUN_SETUP_COMPLETE,
+                                       run_model_validate_and_set_fluid_volume));
 
    g_hash_table_insert(priv->step_map,
                        GINT_TO_POINTER(RUN_SETUP_COMPLETE),
