@@ -120,8 +120,10 @@ set(MY_SOURCES
       src/sw_mvc/setup_page_templates/observer_step.c
     src/sw_mvc/setup_page_templates/prompt_step.c
     src/sw_mvc/setup_page_templates/prompt_step.h
-    src/sw_mvc/pneumatic_leak_test.h
-      src/sw_mvc/pneumatic_leak_test.c
+      src/sw_mvc/setup_page_templates/waitfor_step.c
+      src/sw_mvc/setup_page_templates/autocmd_step.c
+      src/sw_mvc/setup_page_templates/cmdobserver_step.c
+      src/sw_mvc/setup_page_templates/instruction_step.c
 )
 
 include_directories(${PROJECT_SOURCE_DIR})

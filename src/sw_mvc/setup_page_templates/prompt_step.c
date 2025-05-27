@@ -42,7 +42,7 @@ void on_prompt_step_btn_start_next_clicked(__attribute__((unused)) GtkButton *bu
 
    if(self->validation_fn(self->model, gtk_entry_get_text(self->entry_input)))
    {
-      run_model_set_step(self->model, self->next_on_valid);
+      run_model_set_next_step(self->model, self->next_on_valid);
    }
    else
    {

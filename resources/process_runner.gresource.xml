@@ -24,6 +24,10 @@
         <file alias="branch_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/branch_step.ui</file>
         <file alias="observer_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/observer_step.ui</file>
         <file alias="prompt_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/prompt_step.ui</file>
+        <file alias="cmdobserver_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/cmdobserver_step.ui</file>
+        <file alias="waitfor_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/waitfor_step.ui</file>
+        <file alias="autocmd_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/autocmd_step.ui</file>
+        <file alias="instruction_step" compressed="true" preprocess="xml-stripblanks">resources/composite_templates/steps/instruction_step.ui</file>
 
         <!-- CSS -->
         <file alias="app_style">resources/style/process_runner_style.css</file>

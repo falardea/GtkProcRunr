@@ -9,6 +9,10 @@
 #include "setup_page_templates/branch_step.h"
 #include "setup_page_templates/observer_step.h"
 #include "setup_page_templates/prompt_step.h"
+#include "setup_page_templates/waitfor_step.h"
+#include "setup_page_templates/cmdobserver_step.h"
+#include "setup_page_templates/autocmd_step.h"
+#include "setup_page_templates/instruction_step.h"
 #include "setup_view.h"
 
 typedef struct
@@ -108,9 +112,27 @@ static void tabview_factory_build_step_map(TabviewFactory *self)
    g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_PROMPT_FOR_FLUID_VOLUME),
                        prompt_step_new("Fluid Volume Input Required", "Next",
                                        "Volume", "gal", "Enter a value between 10 and 100",
-                                       self->run_model, RUN_SETUP_COMPLETE,
+                                       self->run_model, RUN_SETUP_CMDOBSERVER_PERFUSION_PRESS_CAL,
                                        run_model_validate_and_set_fluid_volume));
 
+   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_CMDOBSERVER_PERFUSION_PRESS_CAL),
+                       cmdobserver_step_new("Perfusion Pressure Sensor Check",
+                                            "Waiting for perfusion pressure calibration to finish",
+                                            "Start", "Abort", RM_PERF_PRESS_CAL_COMPLETE_PROP_STR,
+                                            self->run_model, run_model_cmd_start_perf_press_cal_check,
+                                            RUN_SETUP_CMDOBSERVER_PERFUSION_FLOW_MEAS, RUN_SETUP_FAILED,
+                                            run_model_get_perf_press_cal_result));
+
+   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_INSTRUCT_QR_CODE),
+                       instruction_step_new("Read QR Code", "Start", NULL, self->run_model,
+                                            RUN_SETUP_START_QR_CODE_READING));
+   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_START_QR_CODE_READING),
+                       waitfor_step_new("Waiting for QR Code Reader", self->run_model,
+                                        RM_QR_CODE_COMPLETE_PROP_STR, RUN_SETUP_COMMAND_LOAD_ALBUMIN));
+
+   g_hash_table_insert(priv->step_map, GINT_TO_POINTER(RUN_SETUP_AUTOCMD_SWITCH_TO_BLOOD_PARAMS),
+                       autocmd_step_new("Setting heating and pumping to blood params", self->run_model,
+                                        run_model_cmd_set_blood_params, RUN_SETUP_COMMAND_FEED_RBC_START_BLOOD_OXYGENATION));
    g_hash_table_insert(priv->step_map,
                        GINT_TO_POINTER(RUN_SETUP_COMPLETE),
                        command_step_new("Setup Complete",

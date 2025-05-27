@@ -131,6 +131,6 @@ AppModeSelector *app_mode_selector_new(RunModel *model, GtkOverlay *popup_contai
 //   run_viewer_connect_model_signals(priv->run_viewer, self->model);
 
    run_model_set_run_mode(self->model, RUN_MODE_NOT_SET);
-   run_model_set_step(self->model, RUN_SETUP_UNINITIALIZED);
+   run_model_set_next_step(self->model, RUN_SETUP_UNINITIALIZED);
    return self;
 }

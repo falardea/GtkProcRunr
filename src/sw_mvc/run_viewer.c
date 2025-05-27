@@ -116,7 +116,7 @@ gboolean run_viewer_mode_change_listener(RunModel *model, RUN_MODEL_MODE mode, g
    RunViewerPrivate *priv = run_viewer_get_instance_private(self);
    if (run_model_get_run_mode(model) ==  RUN_MODE_STANDARD)
    {
-      if (run_model_get_step(model) != RUN_SETUP_COMPLETE)
+      if (run_model_get_next_step(model) != RUN_SETUP_COMPLETE)
       {
          gtk_widget_set_visible(GTK_WIDGET(priv->setup_viewer), TRUE);
          gtk_widget_set_visible(GTK_WIDGET(priv->standard_ctx), FALSE);
@@ -135,6 +135,6 @@ gboolean run_viewer_mode_change_listener(RunModel *model, RUN_MODEL_MODE mode, g
       gtk_widget_set_visible(GTK_WIDGET(priv->standard_ctx), FALSE);
       gtk_widget_set_visible(GTK_WIDGET(priv->service_ctx), TRUE);
    }
-   run_model_set_step(self->model, RUN_SETUP_MODE_SELECTED);
+   run_model_set_next_step(self->model, RUN_SETUP_MODE_SELECTED);
    return G_SOURCE_REMOVE;
 }

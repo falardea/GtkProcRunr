@@ -139,6 +139,6 @@ static void branch_step_set_process_complete(BranchStep *self, gboolean complete
    if (self->process_complete != complete)
    {
       self->process_complete = complete;
-      run_model_set_step(self->model, self->on_success);
+      run_model_set_next_step(self->model, self->on_success);
    }
 }

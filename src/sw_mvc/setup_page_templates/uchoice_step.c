@@ -34,14 +34,14 @@ void on_uchoice_step_btn_start_next_clicked(__attribute__((unused)) GtkButton *b
 {
    logging_llprintf(LOGLEVEL_DEBUG, "%s", __func__);
    UchoiceStep *self = UCHOICE_STEP(user_data);
-   run_model_set_step(self->model, self->right_state);
+   run_model_set_next_step(self->model, self->right_state);
 }
 
 void on_uchoice_step_btn_cancel_skip_clicked(__attribute__((unused)) GtkButton *button,__attribute__((unused)) gpointer user_data)
 {
    logging_llprintf(LOGLEVEL_DEBUG, "%s", __func__);
    UchoiceStep *self = UCHOICE_STEP(user_data);
-   run_model_set_step(self->model, self->left_state);
+   run_model_set_next_step(self->model, self->left_state);
 }
 
 static void uchoice_step_class_init(UchoiceStepClass *klass)
